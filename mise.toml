@@ -1,0 +1,7 @@
+[tasks."dashboard:open-dashboard"]
+description = "Open the Pydio dashboard"
+run = "open http://localhost:8080"
+
+[tasks."dashboard:get-hostname"]
+description = "Get hostname"
+run = "hostname"

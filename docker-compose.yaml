@@ -1,0 +1,44 @@
+services:
+  cells:
+    image: pydio/cells:latest
+    restart: unless-stopped
+    hostname: pydio-cells
+    ports:
+      - "8080:8080"
+    environment:
+      # Tells Pydio to bind to the container IP
+      - CELLS_BIND=0.0.0.0:8080
+      # Tells Pydio the public URL used to access it
+      - CELLS_EXTERNAL=http://localhost:8080
+      # Disables SSL generation so you can use plain HTTP
+      - CELLS_NO_TLS=1
+    volumes:
+      - ./cellsdir:/var/cells
+      - ./data:/var/cells/data
+    depends_on:
+      - mysql
+
+  mysql:
+    image: mysql:8
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: P@ssw0rd
+      MYSQL_DATABASE: cells
+      MYSQL_USER: pydio
+      MYSQL_PASSWORD: P@ssw0rd
+    ports:
+      - "3306:3306"
+    # Required command to support Pydio's encoding requirements
+    command:
+      [
+        mysqld,
+        --character-set-server=utf8mb4,
+        --collation-server=utf8mb4_unicode_ci,
+      ]
+    volumes:
+      - ./mysqldir:/var/lib/mysql
+
+volumes:
+  data: {}
+  cellsdir: {}
+  mysqldir: {}
