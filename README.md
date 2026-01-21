@@ -24,7 +24,7 @@ $ mise run dashboard:open-dashboard
 Get hostname:
 
 ```bash
-$ mise dashboard:get-hostname
+$ mise run dashboard:get-hostname
 [dashboard:get-hostname] $ hostname
 Alexs-Mac-Studio.local # example hostname
 ```
