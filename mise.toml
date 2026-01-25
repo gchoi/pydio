@@ -5,3 +5,11 @@ run = "open http://localhost:8080"
 [tasks."dashboard:get-hostname"]
 description = "Get hostname"
 run = "hostname"
+
+[tasks."docker-volume:clean-volumes"]
+description = "Clean docker volume(folders). !!!RUN WITH CAUTION!!!"
+run = """
+    sudo rm -rf ./docker-volume/cellsdir && \
+    rm -rf ./docker-volume/data && \
+    rm -rf ./docker-volume/mysqldir
+"""
