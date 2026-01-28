@@ -2,14 +2,18 @@
 description = "Open the Pydio dashboard"
 run = "open http://localhost:8080"
 
-[tasks."dashboard:get-hostname"]
-description = "Get hostname"
+[tasks."dashboard:get-ipaddress-en0"]
+description = "Get IP Address en0"
 run = "ipconfig getifaddr en0"
+
+[tasks."dashboard:get-ipaddress-en1"]
+description = "Get IP Address en1"
+run = "ipconfig getifaddr en1"
 
 [tasks."docker-volume:clean-volumes"]
 description = "Clean docker volume(folders). !!!RUN WITH CAUTION!!!"
 run = """
-    sudo rm -rf ./docker-volume/cellsdir && \
+    rm -rf ./docker-volume/cellsdir && \
     rm -rf ./docker-volume/data && \
     rm -rf ./docker-volume/mysqldir
 """

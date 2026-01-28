@@ -21,16 +21,22 @@ $ mise run dashboard:open-dashboard
 
 ![](./figures/01.png)
 
-Get hostname:
+Get IP address (en0):
 
 ```bash
-$ mise run dashboard:get-hostname
-[dashboard:get-hostname] $ hostname
-Alexs-Mac-Studio.local # example hostname
+$ mise run dashboard:get-ipaddress-en0
+192.168.0.85 # example hostname
+```
+
+If it does not work (no output), try with en1:
+
+```bash
+$ mise run dashboard:get-ipaddress-en1
+192.168.0.86 # example hostname
 ```
 
 - Database Connection: TCP
-- HostName: {YOUR-HOSTNAME}
+- HostName: {YOUR-IP-ADDRESS}
 - Port: `3306`
 - Database Name: `cells`
 - Database User: `pydio`
