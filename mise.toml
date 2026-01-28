@@ -4,7 +4,7 @@ run = "open http://localhost:8080"
 
 [tasks."dashboard:get-hostname"]
 description = "Get hostname"
-run = "hostname"
+run = "ipconfig getifaddr en0"
 
 [tasks."docker-volume:clean-volumes"]
 description = "Clean docker volume(folders). !!!RUN WITH CAUTION!!!"
