@@ -63,6 +63,14 @@ Login
 
 ![](./figures/06.png)
 
+## Clean Docker
+
+Clean docker volume(folders). !!!RUN WITH CAUTION!!!
+
+```bash
+$ mise run docker:clean
+```
+
 Enjoy sharing files and collaborating with others!
 
 ![](./figures/07.png)

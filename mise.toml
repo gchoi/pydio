@@ -10,10 +10,11 @@ run = "ipconfig getifaddr en0"
 description = "Get IP Address en1"
 run = "ipconfig getifaddr en1"
 
-[tasks."docker-volume:clean-volumes"]
+[tasks."docker:clean"]
 description = "Clean docker volume(folders). !!!RUN WITH CAUTION!!!"
 run = """
-    rm -rf ./docker-volume/cellsdir && \
-    rm -rf ./docker-volume/data && \
-    rm -rf ./docker-volume/mysqldir
+  docker compose down && \
+  rm -rf ./docker-volume/cellsdir && \
+  rm -rf ./docker-volume/data && \
+  rm -rf ./docker-volume/mysqldir
 """
